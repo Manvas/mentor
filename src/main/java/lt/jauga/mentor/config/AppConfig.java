@@ -7,6 +7,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
@@ -23,6 +24,7 @@ public class AppConfig {
     @Value("${spring.datasource.url}") String url;
     @Value("${spring.datasource.username}") String username;
     @Value("${spring.datasource.password}") String password;
+
 
     @Bean(name = "dataSource")
     public DataSource getDataSource() {

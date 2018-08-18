@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -23,6 +24,11 @@ import java.util.Arrays;
 @Configuration
 @EnableAuthorizationServer
 public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter {
+
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
@@ -38,8 +44,15 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
     }
 
     @Override
-    public void configure(final ClientDetailsServiceConfigurer clients) throws Exception{
-        clients.jdbc(this.dataSource);
+    public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
+        configurer
+                .inMemory()
+                .withClient("mentor")
+                .secret(passwordEncoder.encode("M3ntor4ppVGTU"))
+                .authorizedGrantTypes("password","authorization_code","refresh_token")
+                .scopes("read,write,doctor")
+                .accessTokenValiditySeconds(3600)
+                .refreshTokenValiditySeconds(36000);
     }
 
     @Override

@@ -10,5 +10,6 @@ public interface UserService {
     User isValidUser(String email, String password) throws UserCredentialsUnmatchException;
     User getByEmail(String email) throws UserNotFoundException;
     User save(User user);
+    void update(User user);
 
 }

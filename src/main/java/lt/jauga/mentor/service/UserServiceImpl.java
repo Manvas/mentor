@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public void update(User user) {
+        userRepository.update(user);
+    }
+
+    @Override
     public User doesUserExist(String email) throws UserNotFoundException {
         List<User> users = (List<User>) userRepository.findByEmail(email);
         if(users.size() == 0) {
