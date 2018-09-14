@@ -3,18 +3,33 @@ ALTER TABLE POST
 
 -- Users
 -- password in plaintext: "password"
-INSERT INTO USER (user_id, password, email, username, name, last_name, active)
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
 VALUES
-  (1, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'manvydas@jauga.lt', 'manvydas', 'Manvydas', 'Jauga',
+  (1, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'manvydas@jauga.lt', 'manvydas', 'Manvydas', 'Jauga', 'sysadmin',
    1);
 -- password in plaintext: "password"
-INSERT INTO USER (user_id, password, email, username, name, last_name, active)
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
 VALUES
-  (2, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'johndoe@gmail.com', 'johndoe', 'John', 'Doe', 1);
+  (2, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'johndoe@gmail.com', 'johndoe', 'Tomas', 'Dapkus', 'sysadmin', 1);
 -- password in plaintext: "password"
-INSERT INTO USER (user_id, password, email, username, name, last_name, active)
-VALUES (3, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'ana@mail.com', 'ana', 'Ana', 'Surname', 1);
-
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (3, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'kristina@mail.com', 'kristina', 'Kristina', 'Siuzana', 'java', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (4, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Jurga@mail.com', 'Jurga', 'Jurga', 'Siuzana', 'devops', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (5, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Vanesa@mail.com', 'Vanesa', 'Vanesa', 'Siuzana', 'robot', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (6, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Giedrius@mail.com', 'Giedrius', 'Giedrius', 'Siuzana', 'csharp', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (7, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Aldas@mail.com', 'Aldas', 'Aldas', 'Nugaletas', 'analysis', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (8, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Tomas@mail.com', 'Tomas', 'Tomas', 'Kazlauskas', 'electro', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (9, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Algis@mail.com', 'Algis', 'Algis', 'Jonaitis', 'devops', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (10, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Jonas@mail.com', 'Jonas', 'Jonas', 'Nanys', 'java', 1);
+INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
+VALUES (11, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Juozas@mail.com', 'Juozas', 'Juozas', 'Puodukas', 'java', 1);
 -- Roles
 INSERT INTO ROLE (role_id, role)
 VALUES (1, 'ROLE_ADMIN');
@@ -23,13 +38,27 @@ VALUES (2, 'ROLE_USER');
 
 -- User Roles
 INSERT INTO USER_ROLE (user_id, role_id)
-VALUES (1, 1);
-INSERT INTO USER_ROLE (user_id, role_id)
 VALUES (1, 2);
 INSERT INTO USER_ROLE (user_id, role_id)
 VALUES (2, 2);
 INSERT INTO USER_ROLE (user_id, role_id)
 VALUES (3, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (4, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (5, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (6, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (7, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (8, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (9, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (10, 2);
+INSERT INTO USER_ROLE (user_id, role_id)
+VALUES (11, 2);
 
 -- Posts
 INSERT INTO POST (post_id, user_id, title, body, create_date)

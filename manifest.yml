@@ -1,6 +1,0 @@
----
-applications:
-- name: mentor-project
-  instances: 1
-  host: mentor-project
-path: target/mentor-project-0.0.1-SNAPSHOT.jar

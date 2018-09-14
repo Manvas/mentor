@@ -9,8 +9,5 @@
         <module name="mentor-project" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="mentor-project" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

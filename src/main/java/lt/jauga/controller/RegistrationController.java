@@ -60,7 +60,7 @@ public class RegistrationController {
     public String login(Principal principal) {
 
         if (principal != null) {
-            return "redirect:/home";
+            return "redirect:/mentors";
         }
         return "/login";
     }

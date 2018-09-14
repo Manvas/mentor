@@ -24,6 +24,7 @@ public class UserServiceImp implements UserService {
     private final PasswordEncoder passwordEncoder;
 
     private static final String USER_ROLE = "ROLE_USER";
+    private static final int ACTIVE = 1;
 
     @Autowired
     public UserServiceImp(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
@@ -54,4 +55,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Collection<User> findAllOrderedByUsername(){ return userRepository.findAllByOrderByUsernameDesc();}
+
+    @Override
+    public Collection<User> findAllByProfession(User user){ return userRepository.findByProfession(user.getProfession());    }
 }

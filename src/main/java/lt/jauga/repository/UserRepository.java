@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(@Param("username") String username);
 
     Collection<User> findAllByOrderByUsernameDesc();
+
+    Collection <User> findByProfession(@Param("profession") String profession);
 }

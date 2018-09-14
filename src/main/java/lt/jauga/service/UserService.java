@@ -16,4 +16,6 @@ public interface UserService {
     User save(User user);
 
     Collection<User> findAllOrderedByUsername();
+
+    Collection<User> findAllByProfession(User user);
 }

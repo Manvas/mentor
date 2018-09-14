@@ -47,6 +47,20 @@
                            class="form-control input-lg"/>
                 </div>
 
+                <div class="form-group">
+                    <label th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}"
+                           class="alert alert-danger"></label>
+                    <select th:field="*{profession}" class="form-control input-lg">
+                        <option th:value="'sysadmin'">Sistemu administratorius</option>
+                        <option th:value="'java'" >Java programuotojas</option>
+                        <option th:value="'devops'" >DevOps</option>
+                        <option th:value="'robot'" >Robotikos specialistas</option>
+                        <option th:value="'csharp'" >C# programuotojas</option>
+                        <option th:value="'analysis'" >Analitikas</option>
+                        <option th:value="'electro'" >Elektronikas</option>
+                    </select>
+                </div>
+
                 <div class="row">
                     <div class="col-sm-3" style="float: none; margin: 0 auto;">
                         <input type="submit" class="btn btn-primary btn-block" value="Pateikti"/>

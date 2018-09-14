@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -22,13 +23,14 @@ public class MentorsController {
     UserService userService;
 
     @Autowired
-    public MentorsController(UserService userService, PostService postService) {
+    public MentorsController(UserService userService) {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/mentors}", method = RequestMethod.GET)
-    public String blogForUsername(Model model) {
-        Collection<User> users = userService.findAllOrderedByUsername();
+    @RequestMapping(value = "/mentors", method = RequestMethod.GET)
+    public String MentorList(Model model, Principal principal) {
+        Optional<User> user = userService.findByUsername(principal.getName());
+        Collection<User> users = userService.findAllByProfession(user.get());
         model.addAttribute("users", users);
         return "/mentors";
     }

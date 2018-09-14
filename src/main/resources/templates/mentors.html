@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #500787;
+    color: white;
+}</style>
+    <div th:replace="/fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="/fragments/header :: header"/>
+<div class="container">
+    <h1>Jums rekomenduojami mentoriai</h1>
+    <table id="customers">
+        <tr>
+            <th>Vardas</th>
+            <th>Pavardė</th>
+            <th>El. Pašto adresas</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <th th:text="${user.name}">name</th>
+            <td th:text="${user.lastName}">lastname</td>
+            <td th:text="${user.email}">email</td>
+        </tr>
+    </table>
+
+</div>
+<div th:replace="/fragments/footer :: footer"/>
+</body>
+</html>

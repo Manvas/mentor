@@ -44,6 +44,10 @@ public class User {
     @NotEmpty(message = "*Įrašykite savo pavardę")
     private String lastName;
 
+    @Column(name = "profession")
+    @NotEmpty(message = "*Pasirinkite savo profesija")
+    private String profession;
+
     @Column(name = "active", nullable = false)
     private int active;
 
