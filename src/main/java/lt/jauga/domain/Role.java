@@ -14,12 +14,12 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")
-    private Long id;
+    private int id;
 
     @Column(name = "role", unique = true)
     private String role;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Collection<User> users;
 
 }

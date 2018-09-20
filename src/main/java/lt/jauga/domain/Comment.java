@@ -27,14 +27,5 @@ public class Comment {
     @CreationTimestamp
     private Date createDate;
 
-    @ManyToOne
-    @JoinColumn(name = "post_id", referencedColumnName = "post_id", nullable = false)
-    @NotNull
-    private Post post;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    @NotNull
-    private User user;
 
 }

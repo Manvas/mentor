@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import java.security.Principal;
 
-@Controller
+//@Controller
 public class RegistrationController {
-
+/*
     private final UserService userService;
 
     @Autowired
@@ -63,5 +63,5 @@ public class RegistrationController {
             return "redirect:/mentors";
         }
         return "/login";
-    }
+    }*/
 }

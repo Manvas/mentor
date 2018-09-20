@@ -23,23 +23,7 @@
         </div>
     </div>
 
-    <h2>Komentarai:</h2>
-    <div class="well" th:each="comment : ${post.comments}">
-        <h3 th:text="${comment.body}">Body</h3>
-        <div th:text="'Sukurta: ' + ${#dates.format(comment.createDate, 'dd-MMM-yyyy')} + '  '">
-            Sukurta
-        </div>
-        <div><a th:text="${comment.user.username}" th:href="@{'/blog/' + ${comment.user.username}}">Vartotojas</a>
-        </div>
-    </div>
 
-    <div sec:authorize="isAuthenticated()">
-        <div class="row">
-            <a th:href="@{'/commentPost/{id}'(id=${post.id})}" class="col-md-2">
-                <button type="button" class="btn btn-primary btn-block" th:text="Komentuoti">Komentaras</button>
-            </a>
-        </div>
-    </div>
 </div>
 
 

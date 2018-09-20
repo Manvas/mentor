@@ -1,36 +1,65 @@
 package lt.jauga.service;
 
-import lt.jauga.domain.Post;
 import lt.jauga.domain.User;
 import lt.jauga.repository.RoleRepository;
 import lt.jauga.repository.UserRepository;
-import lt.jauga.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServiceImp implements UserService {
 
-    private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
-    private final PasswordEncoder passwordEncoder;
-
-    private static final String USER_ROLE = "ROLE_USER";
-    private static final int ACTIVE = 1;
+    private static final Logger LOG = LoggerFactory.getLogger(UserServiceImp.class);
 
     @Autowired
-    public UserServiceImp(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see com.example.service.UserService#save(com.example.model.User)
+     */
+    @Override
+    public User save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setActive(true);
+        // Set Role to ROLE_USER
+        user.setRoles(Collections.singletonList(roleRepository.findByRole("ROLE_USER")));
+        return userRepository.saveAndFlush(user);
+
+    }
+
+    @Override
+    public String findLoggedInUsername() {
+        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
+        if (userDetails instanceof UserDetails) {
+            String username = ((UserDetails) userDetails).getUsername();
+            LOG.info("Logged in username:" + username);
+            return username;
+        }
+
+        return null;
+    }
+
+    @Override
+    public User findByUsernameAndTenantname(String username, String tenant) {
+        User user = userRepository.findByUsernameAndTenantname(username, tenant);
+        LOG.info("Found user with username:" + user.getUsername() + " from tenant:" + user.getTenant());
+        return user;
     }
 
     @Override
@@ -44,18 +73,9 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User save(User user) {
-        // Encode plaintext password
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setActive(1);
-        // Set Role to ROLE_USER
-        user.setRoles(Collections.singletonList(roleRepository.findByRole(USER_ROLE)));
-        return userRepository.saveAndFlush(user);
-    }
-
-    @Override
     public Collection<User> findAllOrderedByUsername(){ return userRepository.findAllByOrderByUsernameDesc();}
 
     @Override
     public Collection<User> findAllByProfession(User user){ return userRepository.findByProfession(user.getProfession());    }
+
 }

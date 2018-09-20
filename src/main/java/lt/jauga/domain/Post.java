@@ -16,10 +16,11 @@ import java.util.Date;
 @Table(name = "post")
 public class Post {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "post_id")
-    private Long id;
+    private int id;
 
     @Column(name = "title", nullable = false)
     @Length(min = 5, message = "*Pavadinimas turi turėti bent 5 simbolius")
@@ -39,7 +40,5 @@ public class Post {
     @NotNull
     private User user;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
-    private Collection<Comment> comments;
 
 }

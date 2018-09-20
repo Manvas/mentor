@@ -3,7 +3,6 @@ package lt.jauga.service;
 import lt.jauga.domain.Post;
 import lt.jauga.domain.User;
 import lt.jauga.repository.PostRepository;
-import lt.jauga.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,7 +21,7 @@ public class PostServiceImp implements PostService {
     }
 
     @Override
-    public Optional<Post> findForId(Long id) {
+    public Optional<Post> findForId(int id) {
         return postRepository.findById(id);
     }
 

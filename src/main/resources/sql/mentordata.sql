@@ -1,35 +1,35 @@
 ALTER TABLE POST
-  ALTER COLUMN create_date SET DEFAULT CURRENT_TIMESTAMP;
+  CHANGE `create_date` `create_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 -- Users
 -- password in plaintext: "password"
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
 VALUES
-  (1, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'manvydas@jauga.lt', 'manvydas', 'Manvydas', 'Jauga', 'sysadmin',
+  (1, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'manvydas@jauga.lt', 'manvydas', 'Manvydas', 'Jauga', 'sysadmin',
    1);
 -- password in plaintext: "password"
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
 VALUES
-  (2, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'johndoe@gmail.com', 'johndoe', 'Tomas', 'Dapkus', 'sysadmin', 1);
+  (2, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'johndoe@gmail.com', 'johndoe', 'Tomas', 'Dapkus', 'sysadmin', 1);
 -- password in plaintext: "password"
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (3, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'kristina@mail.com', 'kristina', 'Kristina', 'Siuzana', 'java', 1);
+VALUES (3, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'kristina@mail.com', 'kristina', 'Kristina', 'Siuzana', 'java', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (4, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Jurga@mail.com', 'Jurga', 'Jurga', 'Siuzana', 'devops', 1);
+VALUES (4, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Jurga@mail.com', 'Jurga', 'Jurga', 'Siuzana', 'devops', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (5, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Vanesa@mail.com', 'Vanesa', 'Vanesa', 'Siuzana', 'robot', 1);
+VALUES (5, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Vanesa@mail.com', 'Vanesa', 'Vanesa', 'Siuzana', 'robot', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (6, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Giedrius@mail.com', 'Giedrius', 'Giedrius', 'Siuzana', 'csharp', 1);
+VALUES (6, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Giedrius@mail.com', 'Giedrius', 'Giedrius', 'Siuzana', 'csharp', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (7, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Aldas@mail.com', 'Aldas', 'Aldas', 'Nugaletas', 'analysis', 1);
+VALUES (7, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Aldas@mail.com', 'Aldas', 'Aldas', 'Nugaletas', 'analysis', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (8, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Tomas@mail.com', 'Tomas', 'Tomas', 'Kazlauskas', 'electro', 1);
+VALUES (8, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Tomas@mail.com', 'Tomas', 'Tomas', 'Kazlauskas', 'electro', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (9, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Algis@mail.com', 'Algis', 'Algis', 'Jonaitis', 'devops', 1);
+VALUES (9, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Algis@mail.com', 'Algis', 'Algis', 'Jonaitis', 'devops', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (10, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Jonas@mail.com', 'Jonas', 'Jonas', 'Nanys', 'java', 1);
+VALUES (10, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Jonas@mail.com', 'Jonas', 'Jonas', 'Nanys', 'java', 1);
 INSERT INTO USER (user_id, password, email, username, name, last_name, profession, active)
-VALUES (11, '$2a$06$OAPObzhRdRXBCbk7Hj/ot.jY3zPwR8n7/mfLtKIgTzdJa4.6TwsIm', 'Juozas@mail.com', 'Juozas', 'Juozas', 'Puodukas', 'java', 1);
+VALUES (11, '$2a$10$reOKd70EXnDaTXlfPfdWM.otf6eMssz/tmaGwo5ycEZ5eain1Gney', 'Juozas@mail.com', 'Juozas', 'Juozas', 'Puodukas', 'java', 1);
 -- Roles
 INSERT INTO ROLE (role_id, role)
 VALUES (1, 'ROLE_ADMIN');
