@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    public static final String SPRING_SECURITY_FORM_TENANT_NAME_KEY = "tenant";
+    private static final String SPRING_SECURITY_FORM_TENANT_NAME_KEY = "tenant";
 
 
     @Override
@@ -27,7 +27,8 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
         // put in tenant context threadlocal
         String tenant = authRequest.getTenant();
-        TenantContextHolder.setTenantId(tenant);
+        request.getSession().setAttribute("tenant",tenant);
+        TenantContextHolder.setTenantId(request.getSession().getAttribute("tenant").toString());
 
         setDetails(request, authRequest);
 
